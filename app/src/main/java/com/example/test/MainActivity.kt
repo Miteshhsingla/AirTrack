@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             googleMap.isMyLocationEnabled = true
             getAndShowCurrentLocation()
         } else {
-            Log.d("mitesh","else callled")
             // Request location permission
             ActivityCompat.requestPermissions(
 
