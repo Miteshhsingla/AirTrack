@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
+    <TextView
+        android:id="@+id/tvEditProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update your Profile Data"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/etName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:textColor="@color/black"
+        android:layout_marginBottom="50dp"
+        android:paddingStart="20dp"/>
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="300dp"
@@ -19,9 +35,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEditProfile"
         app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        android:layout_marginBottom="10dp"/>
 
     <LinearLayout
         android:id="@+id/ll1"
@@ -33,7 +49,9 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/etAge"
@@ -44,15 +62,13 @@
             android:hint="Enter your Age"
             android:inputType="number"
             android:padding="12dp"
-            tools:layout_editor_absoluteX="56dp"
-            tools:layout_editor_absoluteY="285dp" />
+            android:layout_marginEnd="25dp"/>
 
         <Spinner
             android:id="@+id/spinnerGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="237dp"
-            tools:layout_editor_absoluteY="301dp" />
+            />
 
     </LinearLayout>
 
@@ -70,7 +86,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll1"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginBottom="10dp"/>
 
     <EditText
         android:id="@+id/etWeight"
@@ -86,7 +103,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHeight"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginBottom="10dp"/>
 
     <Button
         android:id="@+id/button"
@@ -99,7 +117,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etWeight"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        android:layout_marginTop="10dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
