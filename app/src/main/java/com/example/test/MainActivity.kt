@@ -36,10 +36,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        val mapView = binding.mapView
-        mapView.onCreate(savedInstanceState)
-        mapView.onResume()
-        mapView.getMapAsync(this)
+//        val mapView = binding.mapView
+//        mapView.onCreate(savedInstanceState)
+//        mapView.onResume()
+//        mapView.getMapAsync(this)
 
 
 
@@ -69,25 +69,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        binding.mapView.onResume()
-    }
 
-    override fun onPause() {
-        super.onPause()
-        binding.mapView.onPause()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        binding.mapView.onDestroy()
-    }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-        binding.mapView.onLowMemory()
-    }
 
 
     private fun getAndShowCurrentLocation() {

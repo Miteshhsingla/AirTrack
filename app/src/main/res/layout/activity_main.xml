@@ -5,13 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <com.google.android.gms.maps.MapView-->
+<!--        android:id="@+id/mapView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
+    <ImageView
+        android:id="@+id/mapImage"
+        android:background="#252525"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/maps"
+        android:layout_above="@+id/bottomSheetLayout"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
     <LinearLayout
+        android:id="@+id/bottomSheetLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
