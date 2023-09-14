@@ -34,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.etEmail.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener(this){
 
                 if(it.isSuccessful){
-                    var intent = Intent(this,MainActivity::class.java)
+                    var intent = Intent(this,HomeActivity::class.java)
                     startActivity(intent)
                 }
                 else{

@@ -7,11 +7,23 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.example.test.databinding.ActivityEditProfileBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import java.text.Normalizer.Form
 
 class EditProfileActivity : AppCompatActivity() {
+    lateinit var selectedGender:String
+    lateinit var binding: ActivityEditProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_profile)
+        binding = ActivityEditProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        val uid = user?.uid
+        val firebaseDatabase = FirebaseDatabase.getInstance()
+        val databaseReference = firebaseDatabase.getReference("formData")
 
         // access the items of the list
         val genders = resources.getStringArray(R.array.Genders)
@@ -30,12 +42,34 @@ class EditProfileActivity : AppCompatActivity() {
 //                    Toast.makeText(this@MainActivity,
 //                        getString(R.string.selected_item) + " " +
 //                                "" + genders[position], Toast.LENGTH_SHORT).show()
-                    val selectedGender = genders[position]
+                    selectedGender = genders[position]
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
                 }
+            }
+        }
+        binding.button.setOnClickListener {
+            if (uid != null) {
+                var formData = FormData(
+                    binding.etName.text.toString(),
+                    binding.etAge.text.toString(),
+                    selectedGender,
+                    binding.etWeight.text.toString(),
+                    binding.etHeight.text.toString()
+                    )
+                databaseReference.child(uid).setValue(formData)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Toast.makeText(this, "Data Updated Successfully", Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Handle the error
+                            val exception = task.exception
+                            if (exception != null) {
+                                // Handle the exception
+                            }
+                        }
+                    }
             }
         }
     }
