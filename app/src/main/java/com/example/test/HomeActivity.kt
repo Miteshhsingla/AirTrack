@@ -16,6 +16,10 @@ class HomeActivity : AppCompatActivity() {
             var intent = Intent(this,MainActivity::class.java)
             startActivity(intent)
         }
+        binding.ib2.setOnClickListener {
+            var intent = Intent(this,AirQualityActivity::class.java)
+            startActivity(intent)
+        }
         binding.ib3.setOnClickListener {
             var intent = Intent(this,EditProfileActivity::class.java)
             startActivity(intent)
