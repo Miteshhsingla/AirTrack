@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(binding.etUsername.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener(this){
                     if(it.isSuccessful){
                         Toast.makeText(this,"Successfully Logged In",Toast.LENGTH_SHORT).show()
-                        var intent = Intent(this,MainActivity::class.java)
+                        var intent = Intent(this,HomeActivity::class.java)
                         startActivity(intent)
                     }
                     else{

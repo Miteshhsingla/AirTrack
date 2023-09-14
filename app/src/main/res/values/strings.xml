@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">AirTrack</string>
+    <string-array name="Genders">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
 </resources>
