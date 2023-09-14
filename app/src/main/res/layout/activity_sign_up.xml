@@ -1,86 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
+android:background="#252525"
 tools:context=".SignUpActivity">
-
-
-<EditText
-    android:id="@+id/etEmail"
-    android:layout_width="300dp"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="100dp"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/search_field_bg"
-    android:ems="10"
-    android:hint="Enter your email"
-    android:inputType="text"
-    android:padding="12dp"
-    app:layout_constraintBottom_toTopOf="@+id/etPassword"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.502"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.848" />
-
-<EditText
-    android:id="@+id/etPassword"
-    android:layout_width="300dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/search_field_bg"
-    android:ems="10"
-    android:hint="Enter password"
-    android:inputType="textEmailAddress"
-    android:padding="12dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.502"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.418" />
-
-<EditText
-    android:id="@+id/etConfirmPassword"
-    android:layout_width="300dp"
-    android:layout_height="wrap_content"
-    android:background="@drawable/search_field_bg"
-    android:ems="10"
-    android:hint="Confirm Password"
-    android:inputType="textPassword"
-    android:padding="12dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.497"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/etPassword"
-    app:layout_constraintVertical_bias="0.06999999" />
-
-
-
-<Button
-    android:id="@+id/button"
-    android:layout_width="300dp"
-    android:layout_height="wrap_content"
-    android:backgroundTint="#000000"
-    android:text="Sign Up"
-    app:layout_constraintBottom_toTopOf="@+id/Login"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
+<!-- Auto layout, variables, and unit scale are not yet supported -->
+<!-- Auto layout, variables, and unit scale are not yet supported -->
+<View
+    android:id="@+id/sign_up_bac"
+    android:layout_width="match_parent"
+    android:layout_height="159dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:background="#000000"
+    />
+<!-- Auto layout, variables, and unit scale are not yet supported -->
 <TextView
-    android:id="@+id/Login"
+    android:id="@+id/sign_up"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Already Registered? Login"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/button"
-    tools:layout_editor_absoluteY="593dp" />
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginStart="24dp"
+    android:layout_marginTop="75dp"
+    android:gravity="top"
+    android:textColor="@color/white"
+    android:textSize="28sp"
+    android:text="Sign Up"
+     />
+<!-- Auto layout, variables, and unit scale are not yet supported -->
+<TextView
+    android:id="@+id/enter_your_"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="124dp"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginStart="24dp"
+    android:text="Enter your details and register to Arima Rides"
+    android:textSize="14sp"
+    android:textColor="@color/white"
+    android:gravity="top"
+    />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentRight="true"
+    android:layout_marginStart="24dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginTop="200dp"
+    android:layout_marginEnd="24dp"
+    android:layout_marginRight="47dp"
+    android:orientation="vertical">
+    <!-- Auto layout, variables, and unit scale are not yet supported -->
+
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="top"
+        android:text="E-mail"
+       android:textColor="@color/white" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:layout_marginBottom="25dp"
+        android:hint="Enter your name"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/field_bg"
+        android:textSize="14dp" />
+
+
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="top"
+        android:text="Password"
+        android:textColor="@color/white" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:padding="8dp"
+        android:hint="Enter your name"
+        android:inputType="textPassword"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/field_bg"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/confirmpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="top"
+        android:text="Confirm password"
+        android:textColor="@color/white" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:layout_marginBottom="25dp"
+        android:hint="Enter your name"
+        android:inputType="textEmailAddress"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/field_bg"
+        android:textSize="14dp" />
+
+
+
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="#3D5CFF"
+        android:text="Create account" />
+
+
+
+    <LinearLayout
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="21dp"
+            android:textColor="@color/white"
+            android:text="Already have an account？ "
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:text="Sign in"
+            android:textColor="#3D5CFF" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+</RelativeLayout>

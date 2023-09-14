@@ -13,7 +13,7 @@
 
     <ImageView
         android:id="@+id/mapImage"
-        android:background="#252525"
+        android:background="#121212"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/maps"
