@@ -18,7 +18,6 @@ class SignUpActivity : AppCompatActivity() {
         auth = Firebase.auth
         setContentView(binding.root)
 
-
         binding.Login.setOnClickListener{
             var intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
