@@ -40,9 +40,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 //        mapView.onCreate(savedInstanceState)
 //        mapView.onResume()
 //        mapView.getMapAsync(this)
-
-
-
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
