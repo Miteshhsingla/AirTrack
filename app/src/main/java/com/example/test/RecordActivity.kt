@@ -307,6 +307,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.test.databinding.ActivityRecordBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class RecordActivity : AppCompatActivity(), SensorEventListener {
@@ -322,11 +323,15 @@ class RecordActivity : AppCompatActivity(), SensorEventListener {
     private var stepCount = 0f
     private var previousStepCount = 0f
     private var running = false
+    private lateinit var uid: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val user = FirebaseAuth.getInstance().currentUser
+        uid = user?.uid.toString()
 
         stepCountTextView = findViewById(R.id.stepCountTextView)
         locationTextView = findViewById(R.id.locationTextView)
@@ -450,7 +455,7 @@ class RecordActivity : AppCompatActivity(), SensorEventListener {
         data["stepCount"] = stepCount
         data["location"] = locationTextView.text.toString()
 
-        ref.push().setValue(data)
+        ref.child(uid).setValue(data)
             .addOnSuccessListener {
                 // Data successfully saved to the database
                 // You can add any additional actions upon successful write
