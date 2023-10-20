@@ -24,5 +24,14 @@ class HomeActivity : AppCompatActivity() {
             var intent = Intent(this,EditProfileActivity::class.java)
             startActivity(intent)
         }
+        binding.ib4.setOnClickListener{
+            var intent = Intent(this,RecordActivity::class.java)
+            startActivity(intent)
+        }
+        binding.ib5.setOnClickListener{
+            var intent = Intent(this,RecordActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

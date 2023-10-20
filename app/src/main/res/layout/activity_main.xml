@@ -11,16 +11,13 @@
 <!--        android:layout_height="match_parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <ImageView
-        android:id="@+id/mapImage"
-        android:background="#121212"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/maps"
-        android:layout_above="@+id/bottomSheetLayout"
-        app:layout_constraintTop_toTopOf="parent"
 
-        />
+    <WebView
+        android:id="@+id/mapWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomSheetLayout"
+        app:layout_constraintTop_toTopOf="parent"/>
     <LinearLayout
         android:id="@+id/bottomSheetLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -60,6 +57,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp" />
             <EditText
+                android:id="@+id/cl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/field_bg"
@@ -86,6 +84,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp" />
             <EditText
+                android:id="@+id/dl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/field_bg"
