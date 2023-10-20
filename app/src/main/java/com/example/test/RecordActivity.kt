@@ -449,13 +449,13 @@ class RecordActivity : AppCompatActivity(), SensorEventListener {
 
     private fun storeDataInDatabase() {
         val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference("stepCountAndLocation")
+        val ref = database.getReference(uid)
 
         val data = HashMap<String, Any>()
         data["stepCount"] = stepCount
         data["location"] = locationTextView.text.toString()
 
-        ref.child(uid).setValue(data)
+        ref.child("stepCountAndLocation").setValue(data)
             .addOnSuccessListener {
                 // Data successfully saved to the database
                 // You can add any additional actions upon successful write

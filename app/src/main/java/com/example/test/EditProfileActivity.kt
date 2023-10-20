@@ -21,9 +21,9 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val user = FirebaseAuth.getInstance().currentUser
-        val uid = user?.uid
+        val uid = user?.uid.toString()
         val firebaseDatabase = FirebaseDatabase.getInstance()
-        val databaseReference = firebaseDatabase.getReference("formData")
+        val databaseReference = firebaseDatabase.getReference(uid)
 
         // access the items of the list
         val genders = resources.getStringArray(R.array.Genders)
@@ -58,7 +58,7 @@ class EditProfileActivity : AppCompatActivity() {
                     binding.etWeight.text.toString(),
                     binding.etHeight.text.toString()
                     )
-                databaseReference.child(uid).setValue(formData)
+                databaseReference.child("userData").setValue(formData)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Data Updated Successfully", Toast.LENGTH_SHORT).show()
