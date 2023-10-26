@@ -68,15 +68,25 @@ class AirQualityActivity : AppCompatActivity() {
             override fun onResponse(call: Call<AirQualityResponse>, response: retrofit2.Response<AirQualityResponse>) {
                 if (response.isSuccessful) {
                     val airQualityData = response.body()
-                    binding.tvAQI.text = "AQI: ${airQualityData!!.list[0].main.aqi.toString()}\n" +
-                            "CO: ${airQualityData!!.list[0].components.co.toString()}\n"+
-                            "NO: ${airQualityData!!.list[0].components.no.toString()}\n"+
-                            "NO2: ${airQualityData!!.list[0].components.no2.toString()}\n"+
-                            "O3: ${airQualityData!!.list[0].components.o3.toString()}\n"+
-                            "SO2: ${airQualityData!!.list[0].components.so2.toString()}\n"+
-                            "PM2.5: ${airQualityData!!.list[0].components.pm2_5.toString()}\n"+
-                            "PM10: ${airQualityData!!.list[0].components.pm10.toString()}\n"+
-                            "NH3: ${airQualityData!!.list[0].components.nh3.toString()}\n"
+                    binding.co.text = "CO: ${airQualityData!!.list[0].components.co.toString()}\n"
+                    binding.no.text = "NO: ${airQualityData!!.list[0].components.no.toString()}\n"
+                    binding.no2.text = "NO2: ${airQualityData!!.list[0].components.no2.toString()}\n"
+                    binding.o3.text = "O3: ${airQualityData!!.list[0].components.o3.toString()}\n"
+                    binding.so2.text = "SO2: ${airQualityData!!.list[0].components.so2.toString()}\n"
+                    binding.pm25.text =  "PM2.5: ${airQualityData!!.list[0].components.pm2_5.toString()}\n"
+                    binding.pm10.text = "PM10: ${airQualityData!!.list[0].components.pm10.toString()}\n"
+                    binding.nh3.text = "NH3: ${airQualityData!!.list[0].components.nh3.toString()}\n"
+
+
+//                    binding.tvAQI.text = "AQI: ${airQualityData!!.list[0].main.aqi.toString()}\n" +
+//                            "CO: ${airQualityData!!.list[0].components.co.toString()}\n"+
+//                            "NO: ${airQualityData!!.list[0].components.no.toString()}\n"+
+//                            "NO2: ${airQualityData!!.list[0].components.no2.toString()}\n"+
+//                            "O3: ${airQualityData!!.list[0].components.o3.toString()}\n"+
+//                            "SO2: ${airQualityData!!.list[0].components.so2.toString()}\n"+
+//                            "PM2.5: ${airQualityData!!.list[0].components.pm2_5.toString()}\n"+
+//                            "PM10: ${airQualityData!!.list[0].components.pm10.toString()}\n"+
+//                            "NH3: ${airQualityData!!.list[0].components.nh3.toString()}\n"
                     // Access the data in airQualityData and update your UI
                 } else {
                     // Handle the error case
