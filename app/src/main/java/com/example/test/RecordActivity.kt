@@ -296,12 +296,14 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -309,7 +311,9 @@ import com.example.test.databinding.ActivityRecordBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.UUID
 class RecordActivity : AppCompatActivity(), SensorEventListener {
 
     private val PERMISSION_ACTIVITY_RECOGNITION = 123
@@ -325,6 +329,7 @@ class RecordActivity : AppCompatActivity(), SensorEventListener {
     private var running = false
     private lateinit var uid: String
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecordBinding.inflate(layoutInflater)
@@ -447,15 +452,22 @@ class RecordActivity : AppCompatActivity(), SensorEventListener {
         locationManager.removeUpdates(locationListener)
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun storeDataInDatabase() {
         val database = FirebaseDatabase.getInstance()
         val ref = database.getReference(uid)
 
-        val data = HashMap<String, Any>()
-        data["stepCount"] = stepCount
-        data["location"] = locationTextView.text.toString()
+        // Create a formatted string
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        val dateTime = LocalDateTime.now().format(formatter)
+        // Generate a random UUID
+        val sessionID = UUID.randomUUID().toString()
 
-        ref.child("stepCountAndLocation").setValue(data)
+        val sessionData = HashMap<String, Any>()
+        sessionData["stepCount"] = stepCount
+        sessionData["location"] = locationTextView.text.toString()
+
+        ref.child("activity").child(sessionID).setValue(sessionData)
             .addOnSuccessListener {
                 // Data successfully saved to the database
                 // You can add any additional actions upon successful write
