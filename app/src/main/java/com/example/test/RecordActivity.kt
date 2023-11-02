@@ -244,10 +244,17 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.test.databinding.ActivityRecordBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListener {
 
@@ -256,24 +263,64 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
     private var stepCounterSensor: Sensor? = null
     private var running = false
     private var stepCount = 0
-
+    private lateinit var user: FirebaseUser
+    private lateinit var uid: String
+    private lateinit var sessionID: String
+    val sessionData = HashMap<String, Any>()
     private lateinit var locationManager: LocationManager
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecordBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        user = FirebaseAuth.getInstance().currentUser!!
+        uid = user?.uid.toString()
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
+        val database = FirebaseDatabase.getInstance()
+        val ref = database.getReference(uid)
+
+        // Create a formatted string
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+
         binding.startButton.setOnClickListener {
+            sessionID = UUID.randomUUID().toString()
+            val dateTime = LocalDateTime.now().format(formatter)
+            sessionData.clear()
+            sessionData["dateTime"] = dateTime
+            sessionData["startLocation"] = binding.locationTextView.text.toString()
+
+            ref.child("activity").child(sessionID).setValue(sessionData)
+                .addOnSuccessListener {
+                    // Data successfully saved to the database
+                    // You can add any additional actions upon successful write
+                }
+                .addOnFailureListener { e ->
+                    // Handle any errors that may occur during the write operation
+                    // You can add appropriate error handling here
+                }
             startRecording()
         }
 
         binding.stopButton.setOnClickListener {
+
+            sessionData["stopLocation"] = binding.locationTextView.text.toString()
+            sessionData["steps"] = binding.stepCountTextView.text.toString()
+            ref.child("activity").child(sessionID).updateChildren(sessionData)
+                .addOnSuccessListener {
+                    // Data successfully saved to the database
+                    // You can add any additional actions upon successful write
+                }
+                .addOnFailureListener { e ->
+                    // Handle any errors that may occur during the write operation
+                    // You can add appropriate error handling here
+                }
             stopRecording()
         }
 
