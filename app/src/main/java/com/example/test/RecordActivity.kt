@@ -244,6 +244,7 @@ import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
 import android.os.Build
+import android.os.Handler
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -251,6 +252,7 @@ import androidx.core.content.ContextCompat
 import com.example.test.databinding.ActivityRecordBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -268,7 +270,19 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
     private lateinit var sessionID: String
     val sessionData = HashMap<String, Any>()
     private lateinit var locationManager: LocationManager
+    private lateinit var database: FirebaseDatabase
+    private lateinit var ref: DatabaseReference
 
+    private val dataAddHandler = Handler()
+    private val dataAddRunnable = object : Runnable {
+        @RequiresApi(Build.VERSION_CODES.O)
+        override fun run() {
+            addDataToFirebase()
+            if (running) {
+                dataAddHandler.postDelayed(this, 20000) // Add data every 20 seconds
+            }
+        }
+    }
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -283,8 +297,8 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
-        val database = FirebaseDatabase.getInstance()
-        val ref = database.getReference(uid)
+        database = FirebaseDatabase.getInstance()
+        ref = database.getReference(uid)
 
         // Create a formatted string
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
@@ -343,6 +357,9 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
             running = true
             binding.startButton.isEnabled = false
             binding.stopButton.isEnabled = true
+
+            // Start adding data to Firebase every 10 seconds
+            dataAddHandler.postDelayed(dataAddRunnable, 10000)
         }
     }
 
@@ -352,6 +369,9 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
             running = false
             binding.startButton.isEnabled = true
             binding.stopButton.isEnabled = false
+
+            // Stop the periodic data addition
+            dataAddHandler.removeCallbacks(dataAddRunnable)
         }
     }
 
@@ -412,6 +432,19 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
 
     companion object {
         const val LOCATION_PERMISSION_REQUEST_CODE = 123
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun addDataToFirebase() {
+        val unixTimestampSeconds = System.currentTimeMillis() / 1000
+        val randomInt = (0..100).random() // Generate a random integer between 0 and 100 (adjust as needed)
+
+        val data = HashMap<String, Any>()
+
+        data["{$unixTimestampSeconds}"] = randomInt
+
+//         Replace 'sessionID' with the session ID you are using to identify the session
+        ref.child("activity").child(sessionID).child("data").child(unixTimestampSeconds.toString()).setValue(randomInt)
     }
 }
 
