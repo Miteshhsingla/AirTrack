@@ -29,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.ib5.setOnClickListener{
-            var intent = Intent(this,RecordActivity::class.java)
+            var intent = Intent(this,RecordHistory::class.java)
             startActivity(intent)
         }
 

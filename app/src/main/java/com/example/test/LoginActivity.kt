@@ -12,27 +12,35 @@ import com.google.firebase.ktx.Firebase
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = Firebase.auth
 
-        binding.SignInButton.setOnClickListener{
-                auth.signInWithEmailAndPassword(binding.etUsername.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener(this){
-                    if(it.isSuccessful){
-                        Toast.makeText(this,"Successfully Logged In",Toast.LENGTH_SHORT).show()
-                        var intent = Intent(this,HomeActivity::class.java)
+        binding.SignInButton.setOnClickListener {
+            val email = binding.etUsername.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                // Show a toast message if the fields are empty
+                Toast.makeText(this, "Fields can't be empty", Toast.LENGTH_SHORT).show()
+            } else {
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
-                    }
-                    else{
-                        Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
                     }
                 }
+            }
         }
 
-        binding.signUp.setOnClickListener{
-            var intent = Intent(this, SignUpActivity::class.java)
+        binding.signUp.setOnClickListener {
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
     }

@@ -12,7 +12,6 @@
 
     <TextView
         android:id="@+id/co"
-        android:text="CO:"
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +23,6 @@
       />
     <TextView
         android:id="@+id/no"
-        android:text="Please Wait..."
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,7 +34,6 @@
 
     <TextView
         android:id="@+id/no2"
-        android:text="Please Wait..."
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,8 +42,6 @@
         android:paddingTop="20dp"
         android:textAlignment="center"
         android:gravity="center" />
-
-
 
     <TextView
         android:id="@+id/o3"
@@ -61,7 +56,6 @@
         android:gravity="center" />
     <TextView
         android:id="@+id/so2"
-        android:text="Please Wait..."
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,7 +66,6 @@
         android:gravity="center" />
     <TextView
         android:id="@+id/pm25"
-        android:text="Please Wait..."
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +76,6 @@
         android:gravity="center" />
     <TextView
         android:id="@+id/pm10"
-        android:text="Please Wait..."
         android:textSize="25dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -95,7 +87,6 @@
 
     <TextView
     android:id="@+id/nh3"
-    android:text="Please Wait..."
     android:textSize="25dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
