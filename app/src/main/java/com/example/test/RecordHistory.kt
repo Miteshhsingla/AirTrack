@@ -44,15 +44,21 @@ class RecordHistory : AppCompatActivity() {
                     for (sessionSnapshot in dataSnapshot.children) {
                         val dateTime = sessionSnapshot.child("dateTime").getValue(String::class.java) ?: "10"
                         val startLocation = sessionSnapshot.child("startLocation").getValue(String::class.java) ?: "test"
-                        val steps = sessionSnapshot.child("steps").getValue(Int::class.java) ?: 0
-                        val endLocation = sessionSnapshot.child("endLocation").getValue(String::class.java) ?: "test"
+                        val steps = sessionSnapshot.child("steps").getValue(String::class.java) ?: "0"
+                        val endLocation = sessionSnapshot.child("stopLocation").getValue(String::class.java) ?: "test"
 
                         val sessionData = ActivityDataClass(dateTime, startLocation, steps, endLocation)
                         sessionDataList.add(sessionData)
                         Log.d("data","$sessionDataList")
                     }
 
-                    adapter.submitList(sessionDataList)
+                    if(sessionDataList!=null){
+                        adapter.submitList(sessionDataList)
+                        Log.d("this","sessionDataList is done")
+                    }
+                    else{
+                        Log.d("this","sessionDataList is null")
+                    }
                 }
 
                 override fun onCancelled(databaseError: DatabaseError) {

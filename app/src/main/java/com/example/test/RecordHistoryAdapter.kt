@@ -41,7 +41,7 @@ class RecordHistoryAdapter : RecyclerView.Adapter<RecordHistoryAdapter.ViewHolde
             dateTimeTextView.text = data.dateTime
             startLocationTextView.text = data.startLocation
             stepsTextView.text = "Steps: ${data.steps}"
-            endLocationTextView.text = "End Location: ${data.endLocation}"
+            endLocationTextView.text = "End Location: ${data.stopLocation}"
         }
     }
 }
