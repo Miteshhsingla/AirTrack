@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/tvEditProfile"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update your Profile Data"
         android:textSize="25sp"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_chainStyle="packed"
         android:textColor="@color/black"
         android:layout_marginBottom="50dp"
-        android:paddingStart="20dp"/>
+        />
 
     <EditText
         android:id="@+id/etName"
@@ -110,7 +110,7 @@
         android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#000000"
+        android:backgroundTint="#4F56D3"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

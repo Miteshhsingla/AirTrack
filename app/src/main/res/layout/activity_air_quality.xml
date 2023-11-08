@@ -8,7 +8,24 @@
     android:gravity="center"
     android:layout_gravity="center"
     tools:context=".AirQualityActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/Location"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingStart="20dp"
+        android:drawableStart="@drawable/baseline_location_on_24"
+        android:text="IIIT Una, Himachal Pradesh"
+        />
+
+</LinearLayout>
 
     <TextView
         android:id="@+id/co"
@@ -19,6 +36,8 @@
         android:paddingTop="20dp"
         android:background="@drawable/search_field_bg"
         android:textAlignment="center"
+        android:layout_margin="12dp"
+
         android:gravity="center"
       />
     <TextView
@@ -29,6 +48,7 @@
         android:background="@drawable/search_field_bg"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
         android:layout_marginBottom="10dp"
         android:gravity="center" />
 
@@ -40,6 +60,8 @@
         android:background="@drawable/search_field_bg"
         android:layout_marginBottom="10dp"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
+
         android:textAlignment="center"
         android:gravity="center" />
 
@@ -53,6 +75,8 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
+
         android:gravity="center" />
     <TextView
         android:id="@+id/so2"
@@ -63,6 +87,7 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
         android:gravity="center" />
     <TextView
         android:id="@+id/pm25"
@@ -73,6 +98,8 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
+
         android:gravity="center" />
     <TextView
         android:id="@+id/pm10"
@@ -83,6 +110,8 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
+
         android:gravity="center" />
 
     <TextView
@@ -94,6 +123,8 @@
         android:layout_marginBottom="10dp"
         android:textAlignment="center"
         android:paddingTop="20dp"
+        android:layout_margin="12dp"
+
         android:gravity="center" />
 
 
