@@ -4,7 +4,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#252525"
+android:background="#ffffff"
 tools:context=".SignUpActivity">
 <!-- Auto layout, variables, and unit scale are not yet supported -->
 <!-- Auto layout, variables, and unit scale are not yet supported -->
@@ -14,7 +14,7 @@ tools:context=".SignUpActivity">
     android:layout_height="159dp"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
-    android:background="#000000"
+    android:background="#D1D4FF"
     />
 <!-- Auto layout, variables, and unit scale are not yet supported -->
 <TextView
@@ -27,7 +27,7 @@ tools:context=".SignUpActivity">
     android:layout_marginStart="24dp"
     android:layout_marginTop="75dp"
     android:gravity="top"
-    android:textColor="@color/white"
+    android:textColor="@color/black"
     android:textSize="28sp"
     android:text="Sign Up"
      />
@@ -43,7 +43,7 @@ tools:context=".SignUpActivity">
     android:layout_marginStart="24dp"
     android:text="Enter your details and register to Airtack"
     android:textSize="14sp"
-    android:textColor="@color/white"
+    android:textColor="@color/black"
     android:gravity="top"
     />
 
@@ -72,7 +72,7 @@ tools:context=".SignUpActivity">
         android:layout_alignParentBottom="true"
         android:gravity="top"
         android:text="E-mail"
-       android:textColor="@color/white" />
+       android:textColor="@color/black" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/etEmail"
@@ -97,7 +97,7 @@ tools:context=".SignUpActivity">
         android:layout_alignParentBottom="true"
         android:gravity="top"
         android:text="Password"
-        android:textColor="@color/white" />
+        android:textColor="@color/black" />
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
@@ -120,7 +120,7 @@ tools:context=".SignUpActivity">
         android:layout_alignParentBottom="true"
         android:gravity="top"
         android:text="Confirm password"
-        android:textColor="@color/white" />
+        android:textColor="@color/black" />
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/etConfirmPassword"
         android:layout_width="match_parent"
@@ -157,7 +157,7 @@ tools:context=".SignUpActivity">
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
             android:layout_marginTop="21dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Already have an account？ "
             android:textSize="12dp" />
 

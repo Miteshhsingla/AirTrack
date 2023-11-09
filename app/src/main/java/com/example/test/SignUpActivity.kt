@@ -19,6 +19,8 @@ class SignUpActivity : AppCompatActivity() {
         auth = Firebase.auth
         setContentView(binding.root)
 
+        getSupportActionBar()?.hide();
+
         binding.login.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)

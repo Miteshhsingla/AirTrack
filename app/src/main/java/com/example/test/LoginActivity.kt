@@ -1,9 +1,10 @@
 package com.example.test
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.example.test.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         auth = Firebase.auth
 
+        getSupportActionBar()?.hide();
         binding.SignInButton.setOnClickListener {
             val email = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()

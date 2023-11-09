@@ -245,6 +245,7 @@ import android.location.LocationManager
 import android.os.Bundle
 import android.os.Build
 import android.os.Handler
+import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -304,6 +305,9 @@ class RecordActivity : AppCompatActivity(), SensorEventListener, LocationListene
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
         binding.startButton.setOnClickListener {
+
+
+            binding.locationTextView.visibility= View.VISIBLE
             sessionID = UUID.randomUUID().toString()
             val dateTime = LocalDateTime.now().format(formatter)
             sessionData.clear()

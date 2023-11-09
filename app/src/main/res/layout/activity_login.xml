@@ -5,7 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-android:background="#252525"
+android:background="#ffffff"
 tools:context=".LoginActivity">
 <!-- Auto layout, variables, and unit scale are not yet supported -->
 <!-- Auto layout, variables, and unit scale are not yet supported -->
@@ -15,7 +15,7 @@ tools:context=".LoginActivity">
     android:layout_height="159dp"
     android:layout_alignParentLeft="true"
     android:layout_alignParentTop="true"
-    android:background="#000000"
+    android:background="#D1D4FF"
     />
 <!-- Auto layout, variables, and unit scale are not yet supported -->
 <TextView
@@ -31,7 +31,7 @@ tools:context=".LoginActivity">
     android:layout_marginBottom="41dp"
     android:gravity="top"
     android:text="Login to Continue"
-    android:textColor="@color/white"
+    android:textColor="@color/black"
     android:textSize="28sp"/>
 <!-- Auto layout, variables, and unit scale are not yet supported -->
 <TextView
@@ -44,7 +44,7 @@ tools:context=".LoginActivity">
     android:layout_alignParentTop="true"
     android:layout_marginStart="24dp"
     android:text="Welcome back !"
-    android:textColor="@color/white"
+    android:textColor="@color/black"
     android:textSize="16sp"
     android:gravity="top"
     />
@@ -69,7 +69,7 @@ tools:context=".LoginActivity">
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:text="E-mail"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:gravity="top" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -78,7 +78,6 @@ tools:context=".LoginActivity">
         android:layout_height="50dp"
         android:layout_marginBottom="25dp"
         android:background="@drawable/field_bg"
-        android:elevation="20dp"
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
         android:padding="8dp"
@@ -94,7 +93,7 @@ tools:context=".LoginActivity">
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
         android:text="Password"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:gravity="top" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -114,7 +113,7 @@ tools:context=".LoginActivity">
             android:layout_height="wrap_content"
             android:text="Log in"
             android:id="@+id/SignInButton"
-            android:backgroundTint="#3D5CFF"
+            android:backgroundTint="#4F56D3"
             android:textSize="16sp" />
 
     <LinearLayout
@@ -126,7 +125,7 @@ tools:context=".LoginActivity">
             android:layout_width="wrap_content"
             android:layout_marginTop="21dp"
             android:textSize="12dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:text="Don't have an account? "
             android:layout_height="wrap_content"/>
         <TextView
