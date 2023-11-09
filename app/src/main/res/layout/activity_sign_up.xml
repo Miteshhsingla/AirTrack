@@ -82,7 +82,7 @@ tools:context=".SignUpActivity">
         android:layout_marginBottom="25dp"
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:background="@drawable/field_bg"
         android:textSize="14dp" />
 
@@ -106,7 +106,7 @@ tools:context=".SignUpActivity">
         android:padding="8dp"
         android:hint="Enter your password"
         android:inputType="textPassword"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:background="@drawable/field_bg"
         android:textSize="14dp" />
 
@@ -129,7 +129,7 @@ tools:context=".SignUpActivity">
         android:layout_marginBottom="25dp"
         android:hint="Enter password"
         android:inputType="textEmailAddress"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:background="@drawable/field_bg"
         android:textSize="14dp" />
 

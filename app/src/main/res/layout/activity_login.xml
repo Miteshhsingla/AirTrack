@@ -81,7 +81,7 @@ tools:context=".LoginActivity">
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
         android:padding="8dp"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="14dp" />
 
     <TextView
@@ -103,7 +103,7 @@ tools:context=".LoginActivity">
         android:textSize="14dp"
         android:padding="8dp"
         android:inputType="textPassword"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:background="@drawable/field_bg"
         android:layout_marginBottom="25dp"
         android:layout_height="50dp" />
